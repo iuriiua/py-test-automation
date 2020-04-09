@@ -14,9 +14,9 @@ def open_amazon(context):
 def click_orders_link(context):
     context.driver.find_element(*ORDERS_LINK).click()
 
-@when('Search for dress')
-def search_product(context):
+@when('Search for {product}')
+def search_product(context, product):
     search_field = context.driver.find_element(*SEARCH_INPUT)
     search_field.clear()
-    search_field.send_keys('dress')
+    search_field.send_keys(product)
     context.driver.find_element(*SEARCH_ICON).click()
